@@ -15,15 +15,14 @@ void setup() {
   size(1080, 720);
   w = width/size;
   h = height/size;
-  pos = new PVector(width/4, height/2 - size/2); // Initial snake position
-  
+  pos = new PVector(w/2, h/2); // Initial snake position
   fill(0);
 }
 
 void draw() {
-  background(200);
+  background(#FFB9C2);
   drawSnake();
-  
+  Ball.drawBall();
   // update snake if frameCount is a multiple of spd which is 20 at the begining
   if(frameCount % spd == 0) {
     updateSnake();   
@@ -36,7 +35,7 @@ void drawSnake() {
   fill(snakeC);
   for (PVector segment : body) {
     fill(snakeC);
-    square(segment.x * size, segment.y * size, size);
+    square(segment.x, segment.y * size, size);
 
   }
    }
@@ -44,7 +43,7 @@ void drawSnake() {
 void updateSnake() {
   body.add(0, pos);
   if(body.size() > len) body.remove(body.size()-1);
-  pos = new PVector(mouseX, 360);
+
 //  pos.add(dir);
 //  if(pos.equals(food)){
 //    spd = max(5, spd-1);
@@ -79,3 +78,7 @@ void updateSnake() {
 //  newFood();
 //  snake = new ArrayList<PVector>();
 //}
+
+void mouseMoved() {
+  pos.x = constrain(mouseX, 0, width - size);
+}
