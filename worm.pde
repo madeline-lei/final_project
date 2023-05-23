@@ -7,8 +7,7 @@ int spd = 20; // reverse speed (smaller spd will make the snake move faster)
 int len = 4; // snake body
 
 
-ArrayList<Integer> body = new ArrayList<5>;
-
+ArrayList<PVector> body = new ArrayList<PVector>();
 
 
 
@@ -17,54 +16,35 @@ void setup() {
   w = width/size;
   h = height/size;
   pos = new PVector(width/4, height/2 - size/2); // Initial snake position
-//  newFood(); // create 2D vector
   
-//  noStroke();
   fill(0);
 }
 
 void draw() {
   background(200);
-  pos.x = mouseX;
   drawSnake();
-//  drawFood();
   
-//  // update snake if frameCount is a multiple of spd which is 20 at the begining
-//  if(frameCount % spd == 0) {
-//    updateSnake();   
-//  }
+  // update snake if frameCount is a multiple of spd which is 20 at the begining
+  if(frameCount % spd == 0) {
+    updateSnake();   
+  }
 }
-
-//// draw the food item (square) which size is the variable size
-//void drawFood() {
-//   fill(200, 140, 255);
-//   rect(food.x*size, food.y*size, size, size);
-//}
-
-//// declare a new pVector (random) for food
-//void newFood() {
-//   food = new PVector((int) random (w), (int) random(h));
-//   for(int i = 0; i < snake.size(); i++){
-//      if(snake.get(i).equals(food)){
-//        newFood();
-//        break;
-//      }
-//   }
-//}
 
 //// draw snake, consider the snake array size (each square of size size) + square of the current pos
 void drawSnake() {
-   fill(30, 190, 30);
-   for(int i = 0; i < body.size; i++){
-     rect(snake.get(i).x*size, snake.get(i).y*size, size, size);//figure this out
-   }
-   fill(30, 120, 30);
-   rect(pos.x*size, pos.y*size, size, size);
+  color snakeC = color(0, 255, 0);
+  fill(snakeC);
+  for (PVector segment : body) {
+    fill(snakeC);
+    square(segment.x * size, segment.y * size, size);
+
+  }
    }
 
 void updateSnake() {
-  snake.add(0, pos.copy());
-  if(snake.size() > len) snake.remove(snake.size()-1);
+  body.add(0, pos);
+  if(body.size() > len) body.remove(body.size()-1);
+  pos = new PVector(mouseX, 360);
 //  pos.add(dir);
 //  if(pos.equals(food)){
 //    spd = max(5, spd-1);
@@ -87,7 +67,7 @@ void updateSnake() {
 //    if(pos.x >= w || pos.x < 0 || pos.y >= h || pos.y < 0)
 //      reset();
 //  }  
-//}
+}
 
 
 
