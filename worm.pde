@@ -6,10 +6,9 @@ int w, h; // how many snakes can be allocated
 int spd = 20; // reverse speed (smaller spd will make the snake move faster)
 int len = 4; // snake body
 
-
 ArrayList<PVector> body = new ArrayList<PVector>();
 
-
+Ball ball0 = new Ball();
 
 void setup() {
   size(1080, 720);
@@ -22,7 +21,7 @@ void setup() {
 void draw() {
   background(#FFB9C2);
   drawSnake();
-  Ball.drawBall();
+    ball0.drawBall();
   // update snake if frameCount is a multiple of spd which is 20 at the begining
   if(frameCount % spd == 0) {
     updateSnake();   
