@@ -9,12 +9,17 @@ int len = 4; // snake body
 ArrayList<PVector> body = new ArrayList<PVector>();
 
 Ball ball0 = new Ball();
+Ball ball1 = new Ball();
+Ball ball2 = new Ball();
+
+block block0 = new block();
 
 void setup() {
-  size(1080, 720);
+  size(750, 900);
   w = width/size;
   h = height/size;
   pos = new PVector(w/2, h/2); // Initial snake position
+  block0.init();
   fill(0);
 }
 
@@ -22,6 +27,9 @@ void draw() {
   background(#FFB9C2);
   drawSnake();
     ball0.drawBall();
+    ball1.drawBall();
+    ball2.drawBall();
+    block0.drawBlock();
   // update snake if frameCount is a multiple of spd which is 20 at the begining
   if(frameCount % spd == 0) {
     updateSnake();   
