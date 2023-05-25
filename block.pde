@@ -3,7 +3,7 @@ public class block {
   private int blockSize = 125;
   private int[] possibleBlocks = new int[6];
   private color blockColor;
-  private int txtSize = 15;
+  private int txtSize = 30;
 
   PVector blockPos;
   void init() {
@@ -12,9 +12,7 @@ public class block {
      }
      blockPos = new PVector( possibleBlocks[ (int) random(0, possibleBlocks.length)], 0);
      magnitude = (int) random(0, 50);
-     colorMode(RGB, 255);
-     fill(0);
-     text(magnitude, blockPos.x - txtSize / 4, blockPos.y + txtSize / 3);
+
   }
 
   public void drawBlock() {
@@ -22,6 +20,10 @@ public class block {
     blockColor = color( 260 - magnitude*5, 100, 100);
     fill(blockColor);
     square(blockPos.x, blockPos.y, blockSize);
+    colorMode(RGB, 255);
+    textSize(txtSize); 
+    fill(0);
+    text(magnitude, blockPos.x + blockSize / 2, blockPos.y + blockSize / 2);
 
   }
 }

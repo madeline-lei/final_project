@@ -35,16 +35,17 @@ void draw() {
   if(frameCount % spd == 0) {
     updateSnake();   
   }
+  
+  scrollDown();
 }
 
-//// draw snake, consider the snake array size (each square of size size) + square of the current pos
 void drawSnake() {
   colorMode(RGB, 255);
   color snakeC = color(0, 255, 0);
   fill(snakeC);
   for (PVector segment : body) {
     fill(snakeC);
-    square(segment.x, segment.y * size, size);
+    circle(segment.x, segment.y * size, size);
 
   }
    }
@@ -52,31 +53,15 @@ void drawSnake() {
 void updateSnake() {
   body.add(0, pos);
   if(body.size() > len) body.remove(body.size()-1);
-
-//  pos.add(dir);
-//  if(pos.equals(food)){
-//    spd = max(5, spd-1);
-//    newFood();
-//    len++;
-//  }
-//  for(int i = 0; i < snake.size(); i++){
-//    if(pos.equals(snake.get(i))){
-//      reset();
-//      break;
-//    }
-//  }
-//  if( actual_mode.equals("no_border")){
-//    if(pos.x >= w) pos.x = 0;
-//    if(pos.x < 0) pos.x = w;
-//    if(pos.y >= h) pos.y = 0;
-//    if(pos.y < 0) pos.y = h;
-//  }
-//  else if( actual_mode.equals("border")){
-//    if(pos.x >= w || pos.x < 0 || pos.y >= h || pos.y < 0)
-//      reset();
-//  }  
 }
 
+void scrollDown() {
+    ball0.ballPos.y++;
+  ball1.ballPos.y++;
+  ball2.ballPos.y++;
+
+
+}
 
 
 //void reset() {
