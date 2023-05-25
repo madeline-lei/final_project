@@ -20,6 +20,7 @@ void setup() {
   h = height/size;
   pos = new PVector(w/2, h/2); // Initial snake position
   block0.init();
+  colorMode(RGB, 255);
   fill(0);
 }
 
@@ -38,6 +39,7 @@ void draw() {
 
 //// draw snake, consider the snake array size (each square of size size) + square of the current pos
 void drawSnake() {
+  colorMode(RGB, 255);
   color snakeC = color(0, 255, 0);
   fill(snakeC);
   for (PVector segment : body) {
