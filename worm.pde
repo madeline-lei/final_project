@@ -30,13 +30,13 @@ void draw() {
     ball0.drawBall();
     ball1.drawBall();
     ball2.drawBall();
-    block0.drawBlock();
+    if(block0.magnitude > 0) block0.drawBlock();
   // update snake if frameCount is a multiple of spd which is 20 at the begining
   if(frameCount % spd == 0) {
     updateSnake();   
-  }
-  
-  scrollDown();
+
+    }
+
 }
 
 void drawSnake() {
@@ -54,15 +54,6 @@ void updateSnake() {
   body.add(0, pos);
   if(body.size() > len) body.remove(body.size()-1);
 }
-
-void scrollDown() {
-    ball0.ballPos.y++;
-  ball1.ballPos.y++;
-  ball2.ballPos.y++;
-
-
-}
-
 
 //void reset() {
 //  spd = 20;

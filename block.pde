@@ -1,9 +1,11 @@
 public class block {
-  private int magnitude;
+   int magnitude;
   private int blockSize = 125;
   private int[] possibleBlocks = new int[6];
   private color blockColor;
   private int txtSize = 30;
+  int scrollRate = 1;
+
 
   PVector blockPos;
   void init() {
@@ -11,7 +13,7 @@ public class block {
        possibleBlocks[i] = i*blockSize;
      }
      blockPos = new PVector( possibleBlocks[ (int) random(0, possibleBlocks.length)], 0);
-     magnitude = (int) random(0, 50);
+     magnitude = (int) random(1, 50);
 
   }
 
@@ -24,6 +26,16 @@ public class block {
     textSize(txtSize); 
     fill(0);
     text(magnitude, blockPos.x + blockSize / 2, blockPos.y + blockSize / 2);
-
+    
+    // block stops when hit
+    if(blockPos.y == width / 2 - blockSize / 2 - size / 2
+       && mouseX > blockPos.x && mouseX < blockPos.x + blockSize) {
+          if(frameCount % spd == 0) {
+            magnitude--;   
+          } 
+     }
+    else blockPos.y += scrollRate;
+    
   }
+  
 }

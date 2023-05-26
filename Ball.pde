@@ -3,6 +3,7 @@ public class Ball{
    PVector ballPos = new PVector((int) random(size, 750 - size), height - size);
    private int txtSize = 15;
    private int ballSize = 20;
+   int scrollRate = 1;
    
    public void drawBall() {
       fill(255, 44, 122); //<>//
@@ -10,6 +11,7 @@ public class Ball{
       fill(#FFFFFF);
       textSize(txtSize); 
       text(magnitude, ballPos.x - txtSize / 4, ballPos.y + txtSize / 3);
+      ballPos.y += scrollRate;
    }
    
    public void update(){
