@@ -30,10 +30,16 @@ void draw() {
     ball0.drawBall();
     ball1.drawBall();
     ball2.drawBall();
-    if(block0.magnitude > 0) block0.drawBlock();
+    if(block0.magnitude > 0) {
+      block0.drawBlock();
+    }
+    else{
+       block0.init();
+    }
   // update snake if frameCount is a multiple of spd which is 20 at the begining
   if(frameCount % spd == 0) {
-    updateSnake();   
+    updateSnake();
+    
 
     }
 
