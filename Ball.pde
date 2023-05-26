@@ -12,6 +12,11 @@ public class Ball{
       textSize(txtSize); 
       text(magnitude, ballPos.x - txtSize / 4, ballPos.y + txtSize / 3);
       ballPos.y += scrollRate;
+      
+    if(ballPos.y == width / 2 - ballSize / 2 - size / 2
+       && mouseX > ballPos.x && mouseX < ballPos.x + ballSize) {
+
+     }
    }
    
    public void update(){
