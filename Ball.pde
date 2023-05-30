@@ -4,6 +4,7 @@ public class Ball{
    private int txtSize = 15;
    private int ballSize = 20;
    int scrollRate = 1;
+   boolean isEaten = false;
    
    public void drawBall() {
       fill(255, 44, 122); //<>//
@@ -15,7 +16,10 @@ public class Ball{
       
     if(ballPos.y == width / 2 - ballSize / 2 - size / 2
        && mouseX > ballPos.x && mouseX < ballPos.x + ballSize) {
-
+     }
+     if( ballPos.x > mouseX - size && ballPos.x < mouseX + size && ballPos.y == height / 2 - size) {
+       changeLen(magnitude);
+       isEaten = true;
      }
    }
    

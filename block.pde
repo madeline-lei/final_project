@@ -1,4 +1,4 @@
-public class block {
+class Block {
    int magnitude;
   private int blockSize = 125;
   private int[] possibleBlocks = new int[6];
