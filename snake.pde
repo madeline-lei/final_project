@@ -60,13 +60,14 @@ void drawSnake() {
   for (PVector segment : body) {
     fill(snakeC);
     circle(segment.x, segment.y * size, size);
-
   }
+  text(len, pos.x, height/2);
    }
 
 void updateSnake() {
   body.add(0, pos);
   if(body.size() > len) body.remove(body.size()-1);
+
 }
 
 //void reset() {
@@ -91,5 +92,10 @@ float getY() {
 }
 
 void changeLen(int magnitude) {
-  len += magnitude;
+  for( int i = 0; i < magnitude; i++) {
+    len++;
+    body.add(new PVector(mouseX, pos.y+size * (len-1)));
+  }
+    print(body);
+
 }
