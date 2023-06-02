@@ -61,7 +61,9 @@ void drawSnake() {
     fill(snakeC);
     circle(pos.x, segment.y, size);
   }
-  text(len, pos.x, height/2);
+  fill(0,0,0);
+  textSize(15);
+  text(len, pos.x - 3, height/2 +5);
    }
 
 void updateSnake() {
