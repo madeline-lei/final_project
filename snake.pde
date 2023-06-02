@@ -17,9 +17,9 @@ Block block0 = new Block();
 
 void setup() {
   size(750, 900);
-  w = width/size;
-  h = height/size;
-  pos = new PVector(w/2, h/2); // Initial snake position
+  //w = width/size;
+  //h = height/size;
+  pos = new PVector(width/2, height/2); // Initial snake position
   block0.init();
   colorMode(RGB, 255);
   fill(0);
@@ -59,15 +59,19 @@ void drawSnake() {
   fill(snakeC);
   for (PVector segment : body) {
     fill(snakeC);
-    circle(segment.x, segment.y * size, size);
+    circle(pos.x, segment.y, size);
   }
   text(len, pos.x, height/2);
    }
 
 void updateSnake() {
-  body.add(0, pos);
-  if(body.size() > len) body.remove(body.size()-1);
-
+  body.add(body.size(), pos);
+  if(body.size() > len) {
+    body.remove(body.size()-1);
+    //pos.y -= size;
+  }
+  pos = new PVector(pos.x, pos.y + size);
+  print(pos.y);
 }
 
 //void reset() {
@@ -83,19 +87,12 @@ void mouseMoved() {
   pos.x = constrain(mouseX, 0, width - size);
 }
 
-float getX() {
-  return pos.x;
-}
-
-float getY() {
-  return pos.y;
-}
-
 void changeLen(int magnitude) {
   for( int i = 0; i < magnitude; i++) {
     len++;
-    body.add(new PVector(mouseX, pos.y+size * (len-1)));
+    PVector addPos = new PVector(mouseX, height/2+size * (len-1));
+    body.add(addPos);
   }
-    print(body);
+    //print(body);
 
 }
