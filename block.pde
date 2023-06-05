@@ -1,5 +1,5 @@
 class Block {
-  int magnitude = (int) random(1, 50);;
+  int magnitude = (int) random(1, 50);
   
   private int blockSize = 125;
   private int[] possibleBlocks = new int[6];
@@ -31,6 +31,7 @@ class Block {
     if(blockPos.y == width / 2 - blockSize / 2 - size / 2
     && mouseX > blockPos.x && mouseX < blockPos.x + blockSize) {
       if(frameCount % spd == 0) {
+        changeLen(1, -1);
         magnitude--;   
       }
     }

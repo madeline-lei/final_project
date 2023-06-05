@@ -1,6 +1,6 @@
 public class Ball{
    private int magnitude = (int) random(1, 5);
-   PVector ballPos = new PVector((int) random(size, 750 - size), height - size);
+   PVector ballPos = new PVector((int) random(size, 750 - size), 0 + size);
    private int txtSize = 15;
    private int ballSize = 20;
    int scrollRate = 1;
@@ -12,7 +12,7 @@ public class Ball{
   if (!isEaten) {
     
     // draw the ball
-    fill(255, 44, 122); //<>//
+    fill(255, 44, 122); //<>// //<>//
     circle(ballPos.x, ballPos.y, ballSize);
     fill(#FFFFFF);
     textSize(txtSize); 
@@ -32,7 +32,7 @@ public class Ball{
     
     // change the length of the snake
     if(isEaten) {
-      changeLen(magnitude);
+      changeLen(magnitude, 1);
     }
   }
  }

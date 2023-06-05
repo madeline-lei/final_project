@@ -5,6 +5,8 @@ int size = 40; // snake size
 int spd = 20; // reverse speed (smaller spd will make the snake move faster)
 int len = 4; // snake body
 
+int accum = 0;
+
 ArrayList<PVector> body = new ArrayList<PVector>();
 
 ArrayList<Ball> balls = new ArrayList<Ball>();
@@ -35,9 +37,11 @@ void setup() {
 void draw() {
   background(#FFB9C2);
   drawSnake();
-    ball0.drawBall();
-    ball1.drawBall();
-    ball2.drawBall();
+    //ball0.drawBall();
+    //ball1.drawBall();
+    //ball2.drawBall();
+    
+    createFood();
     
   if(block0.magnitude > 0) {
     block0.drawBlock();
@@ -49,6 +53,9 @@ void draw() {
   if(frameCount % spd == 0) {
     updateSnake();
   }
+  fill(0);
+  textSize(35);
+  text(accum, 20, 40);
 }
 
 void drawSnake() {
@@ -82,14 +89,35 @@ void mouseMoved() {
   pos.x = constrain(mouseX, 0, width - size);
 }
 
-void changeLen(int magnitude) {
+void changeLen(int magnitude, int direction) {
   for( int i = 0; i < magnitude; i++) {
-    len++;
-    PVector addPos = new PVector(mouseX, height/2+size * (len-1));
-    body.add(addPos);
+    len += direction;
+    if( direction > 0) {
+      PVector addPos = new PVector(mouseX, height/2+size * (len-1));
+      body.add(addPos);
+    }
+    else {
+      if(len < 0) {
+        reset();
+      }
+      else {
+        body.remove(body.size()-1);
+        accum++;
+      }
+    }
+    
   }
 }
 
+
+void reset() {
+  //len = 4;
+  noLoop();
+  print("score: " + accum);
+  //loop();
+}
 void createFood() {
-  
+  for( int i = 0; i < balls.size(); i++) {
+    balls.get(i).drawBall();
+  }
 }
