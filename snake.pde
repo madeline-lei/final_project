@@ -6,10 +6,12 @@ int spd = 20; // reverse speed (smaller spd will make the snake move faster)
 int len = 4; // snake body
 
 int accum = 0;
+int scrollRate = 1;
 
 ArrayList<PVector> body = new ArrayList<PVector>();
 
 ArrayList<Ball> balls = new ArrayList<Ball>();
+ArrayList<Block> blocks = new ArrayList<Block>();
 int numBalls = 3;
 
 Ball ball0 = new Ball();
@@ -17,6 +19,11 @@ Ball ball1 = new Ball();
 Ball ball2 = new Ball();
 
 Block block0 = new Block();
+Block block1 = new Block();
+Block block2 = new Block();
+Block block3 = new Block();
+Block block4 = new Block();
+Block block5 = new Block();
 
 void setup() {
   size(750, 900);
@@ -31,6 +38,11 @@ void setup() {
   }
 
   block0.init();
+  block1.init();
+  block2.init();
+  block3.init();
+  block4.init();
+  block5.init();
 
 }
 
@@ -42,13 +54,19 @@ void draw() {
     //ball2.drawBall();
     
     createFood();
-    
-  if(block0.magnitude > 0) {
     block0.drawBlock();
-  }
-  else{
-     block0.init();
-  }
+    block1.drawBlock();
+    block2.drawBlock();
+    block3.drawBlock();
+    block4.drawBlock();
+    block5.drawBlock();
+
+  //if(block0.magnitude > 0) {
+  //  block0.drawBlock();
+  //}
+  //else{
+  //   block0.init();
+  //}
   // update snake if frameCount is a multiple of spd which is 20 at the begining
   if(frameCount % spd == 0) {
     updateSnake();
@@ -68,7 +86,10 @@ void drawSnake() {
   }
   fill(0,0,0);
   textSize(15);
-  text(len, pos.x - 3, height/2 +5);
+  if(len < 10)
+     text(len, pos.x - 3, height/2 +5);
+  if(len >= 10)
+     text(len, pos.x - 7, height/2 + 5);
 }
 
 void updateSnake() {
@@ -86,7 +107,7 @@ void updateSnake() {
 }
 
 void mouseMoved() {
-  pos.x = constrain(mouseX, 0, width - size);
+  pos.x = constrain(mouseX, 20, width - 20);
 }
 
 void changeLen(int magnitude, int direction) {
@@ -103,6 +124,7 @@ void changeLen(int magnitude, int direction) {
       else {
         body.remove(body.size()-1);
         accum++;
+        scrollRate = 1;
       }
     }
     

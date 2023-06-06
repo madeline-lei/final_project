@@ -3,7 +3,7 @@ public class Ball{
    PVector ballPos = new PVector((int) random(size, 750 - size), 0 + size);
    private int txtSize = 15;
    private int ballSize = 20;
-   int scrollRate = 1;
+   //int scrollRate = 1;
    public boolean isEaten = false;
    
    int id;
@@ -26,7 +26,7 @@ public class Ball{
     
     // check if the head is on the ball
     if( ballPos.x > mouseX - size && ballPos.x < mouseX + size 
-    && ballPos.y > height / 2 - size && ballPos.y < height / 2 + size) {
+    && ballPos.y > height / 2 - size && ballPos.y < height / 2 ) {
       isEaten = true;
     }
     

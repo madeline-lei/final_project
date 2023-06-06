@@ -2,11 +2,11 @@ class Block {
   int magnitude = (int) random(1, 50);
   
   private int blockSize = 125;
-  private int[] possibleBlocks = new int[6];
+  int[] possibleBlocks = new int[6];
   private color blockColor;
   private int txtSize = 30;
   
-  int scrollRate = 1;
+  //int scrollRate = 1;
   PVector blockPos;
   
   void init() {
@@ -18,6 +18,7 @@ class Block {
   }
   
   public void drawBlock() {
+    if( magnitude > 0) {
     colorMode(HSB, 360, 100, 100);
     blockColor = color( 260 - magnitude*5, 100, 100);
     fill(blockColor);
@@ -25,7 +26,7 @@ class Block {
     colorMode(RGB, 255);
     textSize(txtSize); 
     fill(0);
-    text(magnitude, blockPos.x + blockSize / 2, blockPos.y + blockSize / 2);
+    text(magnitude, blockPos.x + blockSize / 2 -10, blockPos.y + blockSize / 2 +8);
     
     // block stops when hit
     if(blockPos.y == width / 2 - blockSize / 2 - size / 2
@@ -34,9 +35,17 @@ class Block {
         changeLen(1, -1);
         magnitude--;   
       }
+      scrollRate = 0;
     }
     // otherwise continue scrolling
-    else blockPos.y += scrollRate;
+    else {
+      //scrollRate = 1;
+      blockPos.y += scrollRate;
+    }
+
+  }
+    else this.init();
+
   }
   
 }
