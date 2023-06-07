@@ -7,6 +7,7 @@ int len = 4; // snake body
 
 int accum = 0;
 int scrollRate = 1;
+//boolean blockHead = false;
 
 ArrayList<PVector> body = new ArrayList<PVector>();
 
@@ -57,9 +58,9 @@ void draw() {
     block0.drawBlock();
     block1.drawBlock();
     block2.drawBlock();
-    block3.drawBlock();
-    block4.drawBlock();
-    block5.drawBlock();
+    //block3.drawBlock();
+    //block4.drawBlock();
+    //block5.drawBlock();
 
   //if(block0.magnitude > 0) {
   //  block0.drawBlock();
@@ -73,7 +74,8 @@ void draw() {
   }
   fill(0);
   textSize(35);
-  text(accum, 20, 40);
+  text("score: " + accum, 20, 40);
+  //text(scrollRate, 302, 402);
 }
 
 void drawSnake() {
@@ -104,6 +106,12 @@ void updateSnake() {
   // change the position of the head
   pos = new PVector(pos.x, pos.y + size);
   
+  if(block0.isTouching() || block1.isTouching() || block2.isTouching()) {
+    scrollRate = 0;
+  }
+  else {
+    scrollRate = 1;
+  }
 }
 
 void mouseMoved() {
@@ -124,11 +132,12 @@ void changeLen(int magnitude, int direction) {
       else {
         body.remove(body.size()-1);
         accum++;
-        scrollRate = 1;
       }
     }
     
   }
+     scrollRate = 1;
+
 }
 
 

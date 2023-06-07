@@ -1,4 +1,4 @@
-public class Ball{
+public class Ball {
    private int magnitude = (int) random(1, 5);
    PVector ballPos = new PVector((int) random(size, 750 - size), 0 + size);
    private int txtSize = 15;

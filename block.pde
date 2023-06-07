@@ -29,23 +29,26 @@ class Block {
     text(magnitude, blockPos.x + blockSize / 2 -10, blockPos.y + blockSize / 2 +8);
     
     // block stops when hit
-    if(blockPos.y == width / 2 - blockSize / 2 - size / 2
-    && mouseX > blockPos.x && mouseX < blockPos.x + blockSize) {
+    if(isTouching()) {
       if(frameCount % spd == 0) {
         changeLen(1, -1);
         magnitude--;   
       }
-      scrollRate = 0;
+      //blockPos.y++;
     }
-    // otherwise continue scrolling
     else {
-      //scrollRate = 1;
       blockPos.y += scrollRate;
     }
+    // otherwise continue scrolling
+
+
 
   }
     else this.init();
 
   }
-  
+boolean isTouching() {
+  return blockPos.y == width / 2 - blockSize / 2 - size / 2 && mouseX > blockPos.x && mouseX < blockPos.x + blockSize;
+}
+
 }
