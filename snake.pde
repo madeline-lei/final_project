@@ -3,7 +3,7 @@ PVector pos; // snake position (position of the head)
 int size = 40; // snake size
 
 int spd = 20; // reverse speed (smaller spd will make the snake move faster)
-int len = 4; // snake body
+int len = 10; // snake body
 
 int accum = 0;
 int scrollRate = 1;
@@ -19,12 +19,14 @@ Ball ball0 = new Ball();
 Ball ball1 = new Ball();
 Ball ball2 = new Ball();
 
-Block block0 = new Block();
-Block block1 = new Block();
-Block block2 = new Block();
-Block block3 = new Block();
-Block block4 = new Block();
-Block block5 = new Block();
+BlockWall blockWall0 = new BlockWall();
+
+Block block0 = new Block(0);
+Block block1 = new Block(0);
+Block block2 = new Block(1);
+Block block3 = new Block(1);
+Block block4 = new Block(2);
+Block block5 = new Block(2);
 
 void setup() {
   size(750, 900);
@@ -38,13 +40,6 @@ void setup() {
     balls.get(i).id = i;
   }
 
-  block0.init();
-  block1.init();
-  block2.init();
-  block3.init();
-  block4.init();
-  block5.init();
-
 }
 
 void draw() {
@@ -53,21 +48,15 @@ void draw() {
     //ball0.drawBall();
     //ball1.drawBall();
     //ball2.drawBall();
-    
+    blockWall0.drawBlockWall();
     createFood();
-    block0.drawBlock();
-    block1.drawBlock();
-    block2.drawBlock();
+    //block0.drawBlock();
+    //block1.drawBlock();
+    //block2.drawBlock();
     //block3.drawBlock();
     //block4.drawBlock();
     //block5.drawBlock();
 
-  //if(block0.magnitude > 0) {
-  //  block0.drawBlock();
-  //}
-  //else{
-  //   block0.init();
-  //}
   // update snake if frameCount is a multiple of spd which is 20 at the begining
   if(frameCount % spd == 0) {
     updateSnake();
@@ -106,8 +95,14 @@ void updateSnake() {
   // change the position of the head
   pos = new PVector(pos.x, pos.y + size);
   
-  if(block0.isTouching() || block1.isTouching() || block2.isTouching()) {
+  if(block0.isTouching() || block1.isTouching() || block2.isTouching() || blockWall0.isTouching) {
+    // checking every object is such a band-aid fix
+    
     scrollRate = 0;
+    // we need to implement some sort of correction
+    // i would make every object just equal to their old position in addition to the scrollRate = 0,
+    // but that seems like too much hassle
+    // also each block moves a diff amt each frame? idk why that is
   }
   else {
     scrollRate = 1;
