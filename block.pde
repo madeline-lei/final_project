@@ -9,7 +9,6 @@ class Block {
   private int txtSize = 30;
   boolean isEaten = false;
   
-  //int scrollRate = 1;
   PVector blockPos;
   // boundaries
 
