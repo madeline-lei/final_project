@@ -15,6 +15,9 @@ class Block {
   int type; 
   // 0 = easy block (always breakable), 1 = medium block (near the size), 2 = impossible block
   
+  void init( int x, int y){
+    blockPos = new PVector(x*125, -y);
+  }
   
   public Block(int Itype) {
     int type = Itype;
