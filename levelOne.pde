@@ -1,7 +1,7 @@
 class LevelOne {
   
   int firstY = 125;
-  boolean blockTouch = false;
+  //boolean blockTouch = false;
   
   ArrayList<Block> blocks = new ArrayList<Block>();
   ArrayList<BlockWall> blockWalls = new ArrayList<BlockWall>();
@@ -43,6 +43,12 @@ class LevelOne {
     if( isTouching()) {
       scrollRate = 0;
     }
+    if(isLeftCollide()) {
+      leftCollide = true;
+    }
+    if(isRightCollide()) {
+      rightCollide = true;
+    }
     
     for( int i = 0; i<blockWalls.size(); i++) {
       if(! blockWalls.get(i).isOnScreen()) {
@@ -62,6 +68,12 @@ class LevelOne {
     if(!isTouching()) {
       scrollRate = 2;
     }
+    if(!isLeftCollide()) {
+      leftCollide = false;
+    }
+     if(!isRightCollide()) {
+      rightCollide = false;
+    }
   }
   
   boolean isTouching() {
@@ -74,5 +86,28 @@ class LevelOne {
     }
     return accum;
   }
+  
+  boolean isLeftCollide() {
+    boolean accum = false;
+    for( BlockWall bw : blockWalls) {
+      accum |= bw.leftCollide;
+    }
+    for( Block b : blocks) {
+      accum |= b.leftCollision();
+    }
+    return accum;
+  }
+  
+  boolean isRightCollide() {
+    boolean accum = false;
+    for( BlockWall bw : blockWalls) {
+      accum |= bw.rightCollide;
+    }
+    for( Block b : blocks) {
+      accum |= b.rightCollision();
+    }
+    return accum;
+  }
+  
   
 }
