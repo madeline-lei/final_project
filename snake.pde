@@ -4,10 +4,11 @@ PVector pos; // snake position (position of the head)
 //float sBottom;
 //float sLeft;
 //float sRight;
-
+boolean leftCollide = false;
+boolean rightCollide = false;
 int size = 40; // snake size
 
-int spd = 10; // reverse speed (smaller spd will make the snake move faster)
+int spd = 7; // reverse speed (smaller spd will make the snake move faster)
 int len = 10; // snake body
 
 int accum = 0;
@@ -88,24 +89,23 @@ void drawSnake() {
 void updateSnake() {
   // continuously add the new head to the body
   body.add(body.size(), pos);
+
   
+
+
   // remove the excess (old) positions of the body
   if(body.size() > len) {
       body.remove(body.size()-1);
   }
-  
+  println(leftCollide);
   // change the position of the head
-  pos = new PVector(pos.x, pos.y + size);
+    pos = new PVector(pos.x, pos.y + size);
   
-  //sTop = pos.y - size;
-  //sBottom = pos.y + size;
-  //sLeft = pos.x - size;
-  //sRight = pos.x + size;
   
 }
 
 void mouseMoved() {
-  pos.x = constrain(mouseX, 20, width - 20);
+  if (!leftCollide && !rightCollide) pos.x = constrain(mouseX, 20, width - 20);
 }
 
 void changeLen(int magnitude, int direction) {

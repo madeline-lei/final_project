@@ -10,10 +10,8 @@ class Block {
   boolean isEaten = false;
   
   PVector blockPos;
-  // boundaries
 
-  float left;
-  float right;
+
   
   int type;
   // 0 = easy block (always breakable), 1 = medium block (near the size), 2 = impossible block
@@ -22,8 +20,6 @@ class Block {
     changeMagnitude(Itype);
     blockPos = new PVector(x*125, -y);
 
-    left= blockPos.x;
-    right = blockPos.x - blockSize;
   }
   public Block(int Itype) {
      changeMagnitude(Itype);
@@ -53,11 +49,9 @@ class Block {
       textSize(txtSize); 
       fill(0);
       text(magnitude, blockPos.x + blockSize / 2 -10, blockPos.y + blockSize / 2 +8);
-      
-      left= blockPos.x;
-      right = blockPos.x - blockSize;
-      
-      collision();
+
+      leftCollision();
+      rightCollision();
       scroll();
   }
 }
@@ -81,7 +75,9 @@ void scroll() {
 }
 boolean isTouching() {
   // WHY IS THERE WIDTH FOR A y-coor COMPARISION AND WHY DOES IT WORK
-  return blockPos.y == width / 2 - blockSize / 2 - size / 2 && mouseX > blockPos.x && mouseX < blockPos.x + blockSize
+  int topOfSnake = width / 2 - blockSize / 2 - size / 2;
+  return ( blockPos.y > topOfSnake && blockPos.y < topOfSnake + 10) 
+  && mouseX > blockPos.x && mouseX < blockPos.x + blockSize
   && !isEaten;
 }
 
@@ -90,11 +86,38 @@ boolean isOnScreen() {
   return blockPos.y > 0 - size * 3 - 5;
 }
 
-void collision() {
-  // this somehow checks if the mouse is off the screen?????
-  if(blockPos.y+blockSize > 360 && blockPos.y > 360 && mouseX == 0) {
-       pos = new PVector(pos.x + size, pos.y + size);
+
+boolean leftCollision() {
+  int topOfSnake = width / 2 - blockSize / 2 - size / 2;
+  if (blockPos.y > topOfSnake + 5 && blockPos.y < topOfSnake + blockSize + size
+  && pos.x + size/2 - blockSize/2 < blockPos.x && pos.x + size/2 - blockSize/2 > blockPos.x - blockSize
+  && mouseX + size/2 > blockPos.x - 10
+  && !isEaten) {
+    pos.x = blockPos.x - size/2;
+    return true;
   }
+  else return false;
+  
+  //return blockPos.y > topOfSnake + 5 && blockPos.y < topOfSnake + blockSize + size
+  //&& pos.x + size/2 - blockSize/2 < blockPos.x && mouseX + size/2 > blockPos.x - 10
+  //&& !isEaten;
+}
+
+boolean rightCollision() {
+  int topOfSnake = width / 2 - blockSize / 2 - size / 2;
+  
+  if(blockPos.y > topOfSnake + 5 && blockPos.y < topOfSnake + blockSize + 10
+   && pos.x - size/2 + blockSize/2 > blockPos.x + blockSize && pos.x - size/2 + blockSize/2 < blockPos.x - blockSize
+   && mouseX - size/2 < blockPos.x + 10 + blockSize
+   && !isEaten) {
+    pos.x = blockPos.x + blockSize + size/2;
+    return true;
+  }
+  else return false;
+ 
+  //return blockPos.y > topOfSnake + 5 && blockPos.y < topOfSnake + blockSize + 10
+  //&& pos.x - size/2 + blockSize/2 > blockPos.x + blockSize && mouseX - size/2 < blockPos.x + 10 + blockSize
+  //&& !isEaten;
 }
 
 }

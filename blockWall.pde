@@ -1,9 +1,11 @@
-class BlockWall{
+ class BlockWall{
   ArrayList<Integer> possibleBlocks = new ArrayList<Integer>();
   int totalBlocks = 6;
   
   ArrayList<Block> blocks = new ArrayList<Block>();
   boolean isTouching = false;
+  boolean leftCollide = false;
+  boolean rightCollide = false;
   
   
   public BlockWall(int ystart) {
@@ -25,9 +27,13 @@ class BlockWall{
   
   public void drawBlockWall() {
     isTouching = false;
+    leftCollide = false;
+    rightCollide = false;
     for( int i = 0; i < totalBlocks; i++) {
       blocks.get(i).drawBlock();
       isTouching |= blocks.get(i).isTouching();
+      leftCollide |= blocks.get(i).leftCollision();
+      rightCollide |= blocks.get(i).rightCollision();
     }
   }
   
