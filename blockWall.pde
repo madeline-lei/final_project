@@ -1,0 +1,2 @@
+class BlockWall extends Block {
+}
