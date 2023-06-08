@@ -7,26 +7,24 @@ class LevelOne {
   ArrayList<BlockWall> blockWalls = new ArrayList<BlockWall>();
   
 
-  public LevelOne() {
-  // first wall
+    public LevelOne() {
     blockWalls.add(new BlockWall(firstY));
     blockWalls.add(new BlockWall(firstY + 6*125));
-    blockWalls.add(new BlockWall(firstY + 19*125));
+    blockWalls.add(new BlockWall(firstY + 12*125));
+    blockWalls.add(new BlockWall(firstY + 18*125));
     blockWalls.add(new BlockWall(firstY + 32*125));
   
+    blocks.add(new Block(1, 1, firstY + 2*125));
     blocks.add(new Block(0, 3, firstY + 4*125));
+    blocks.add(new Block(1, 1, firstY + 8*125));
+    blocks.add(new Block(1, 5, firstY + 8*125));
+    blocks.add(new Block(2, 2, firstY + 10*125));
+    blocks.add(new Block(2, 4, firstY + 10*125));
+    blocks.add(new Block(1, 4, firstY + 14*125));
+    blocks.add(new Block(0, 0, firstY + 16*125));
+    blocks.add(new Block(1, 2, firstY + 16*125));
+    blocks.add(new Block(0, 5, firstY + 16*125));
   }
-
-    
-  //Block block13 = new Block();
-  //  block13.init(1, startY + 9*125);
-  //Block block14 = new Block();
-  //  block14.init(5, startY + 9*125);
-    
-  //Block block15 = new Block();
-  //  block15.init(1, startY + 11*125);
-  //Block block16 = new Block();
-  //  block16.init(4, startY + 11*125);
   
   void drawLevel() {
     if( isTouching()) {
@@ -49,7 +47,7 @@ class LevelOne {
     
     
     if(!isTouching()) {
-      scrollRate = 1;
+      scrollRate = 2;
     }
   }
   
