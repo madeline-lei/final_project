@@ -1,4 +1,11 @@
+
 PVector pos; // snake position (position of the head)
+
+//float sTop;
+//float sBottom;
+//float sLeft;
+//float sRight;
+
 
 int size = 40; // snake size
 
@@ -7,26 +14,16 @@ int len = 10; // snake body
 
 int accum = 0;
 int scrollRate = 1;
-//boolean blockHead = false;
 
 ArrayList<PVector> body = new ArrayList<PVector>();
 
 ArrayList<Ball> balls = new ArrayList<Ball>();
-ArrayList<Block> blocks = new ArrayList<Block>();
 int numBalls = 3;
 Ball ball0 = new Ball();
 Ball ball1 = new Ball();
 Ball ball2 = new Ball();
 
-BlockWall blockWall00 = new BlockWall(0);
-
-
-//Block block0 = new Block(0);
-//Block block1 = new Block(0);
-//Block block2 = new Block(1);
-//Block block3 = new Block(1);
-//Block block4 = new Block(2);
-//Block block5 = new Block(2);
+LevelOne lvl1 = new LevelOne();
 
 void setup() {
   size(750, 900);
@@ -34,8 +31,12 @@ void setup() {
   colorMode(RGB, 255);
   fill(0);
   
-  LevelOne.startLevelOne();
-  block6.init(3, firstY + 4*125);
+  //sTop = pos.y - size;
+  //sBottom = pos.y + size;
+  //sLeft = pos.x - size;
+  //sRight = pos.x + size;
+  
+  //LevelOne.startLevelOne();
   
   // initialize objects
   for(int i = 0; i < numBalls; i++) {
@@ -47,17 +48,8 @@ void setup() {
 void draw() {
   background(#FFB9C2);
   drawSnake();
-    //ball0.drawBall();
-    //ball1.drawBall();
-    //ball2.drawBall();
-    blockWall0.drawBlockWall();
-    createFood();
-    //block0.drawBlock();
-    //block1.drawBlock();
-    //block2.drawBlock();
-    //block3.drawBlock();
-    //block4.drawBlock();
-    block6.drawBlock();
+  createFood();
+  lvl1.drawLevel();
 
   // update snake if frameCount is a multiple of spd which is 20 at the begining
   if(frameCount % spd == 0) {
@@ -83,6 +75,10 @@ void drawSnake() {
      text(len, pos.x - 3, height/2 +5);
   if(len >= 10)
      text(len, pos.x - 7, height/2 + 5);
+  if(len < 1) {
+    reset();
+  }
+  
 }
 
 void updateSnake() {
@@ -97,18 +93,11 @@ void updateSnake() {
   // change the position of the head
   pos = new PVector(pos.x, pos.y + size);
   
-  if(block0.isTouching() || block1.isTouching() || block2.isTouching() || blockWall0.isTouching) {
-    // checking every object is such a band-aid fix
-    
-    scrollRate = 0;
-    // we need to implement some sort of correction
-    // i would make every object just equal to their old position in addition to the scrollRate = 0,
-    // but that seems like too much hassle
-    // also each block moves a diff amt each frame? idk why that is
-  }
-  else {
-    scrollRate = 1;
-  }
+  //sTop = pos.y - size;
+  //sBottom = pos.y + size;
+  //sLeft = pos.x - size;
+  //sRight = pos.x + size;
+  
 }
 
 void mouseMoved() {
@@ -133,7 +122,6 @@ void changeLen(int magnitude, int direction) {
     }
     
   }
-     scrollRate = 1;
 
 }
 
