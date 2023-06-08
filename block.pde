@@ -79,9 +79,12 @@ void scroll() {
     blockPos.y += scrollRate;
   }
 }
+
 boolean isTouching() {
   // WHY IS THERE WIDTH FOR A y-coor COMPARISION AND WHY DOES IT WORK
-  return blockPos.y == width / 2 - blockSize / 2 - size / 2 && mouseX > blockPos.x && mouseX < blockPos.x + blockSize
+  int topOfSnake = width / 2 - blockSize / 2 - size / 2;
+  return ( blockPos.y > topOfSnake && blockPos.y < topOfSnake + 10) 
+  && mouseX > blockPos.x && mouseX < blockPos.x + blockSize
   && !isEaten;
 }
 
