@@ -1,4 +1,3 @@
-
 PVector pos; // snake position (position of the head)
 
 //float sTop;
@@ -6,14 +5,13 @@ PVector pos; // snake position (position of the head)
 //float sLeft;
 //float sRight;
 
-
 int size = 40; // snake size
 
-int spd = 20; // reverse speed (smaller spd will make the snake move faster)
+int spd = 10; // reverse speed (smaller spd will make the snake move faster)
 int len = 10; // snake body
 
 int accum = 0;
-int scrollRate = 1;
+int scrollRate = 2;
 
 ArrayList<PVector> body = new ArrayList<PVector>();
 
@@ -35,9 +33,7 @@ void setup() {
   //sBottom = pos.y + size;
   //sLeft = pos.x - size;
   //sRight = pos.x + size;
-  
-  //LevelOne.startLevelOne();
-  
+    
   // initialize objects
   for(int i = 0; i < numBalls; i++) {
     balls.add(new Ball());
@@ -58,7 +54,15 @@ void draw() {
   fill(0);
   textSize(35);
   text("score: " + accum, 20, 40);
-  //text(scrollRate, 302, 402);
+  
+  if(len == 0){
+    fill(#FFB9C2);
+    square(-5, -5, 915);
+    fill(0);
+    textSize(50);
+    text("You Died!", width/2 - 100, height/2 - 50);
+    text("final score: " + accum, width/2 - 140, height/2 + 50);
+  }
 }
 
 void drawSnake() {
@@ -127,10 +131,7 @@ void changeLen(int magnitude, int direction) {
 
 
 void reset() {
-  //len = 4;
   noLoop();
-  print("score: " + accum);
-  //loop();
 }
 void createFood() {
   for( int i = 0; i < balls.size(); i++) {
