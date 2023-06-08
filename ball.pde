@@ -3,7 +3,6 @@ public class Ball {
    PVector ballPos = new PVector((int) random(size, 750 - size), 0 + size);
    private int txtSize = 15;
    private int ballSize = 20;
-   //int scrollRate = 1;
    public boolean isEaten = false;
    
    int id;
@@ -36,11 +35,6 @@ public class Ball {
     }
   }
  }
-   
-   public void update(){
-      // draw
-      // move down
-      // if snake hits, call eat() then disappear
-   }
+
 
 }
