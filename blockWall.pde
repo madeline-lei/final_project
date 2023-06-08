@@ -5,7 +5,7 @@ class BlockWall{
   ArrayList<Block> blocks = new ArrayList<Block>();
   boolean isTouching = false;
   
-  public BlockWall() {
+  public BlockWall(int ystart) {
     for(int i = 0; i < 2; i++) {
       blocks.add(new Block(0));
       blocks.add(new Block(1));
@@ -17,7 +17,7 @@ class BlockWall{
     
     for( int i = 0; i < totalBlocks; i++) {
       int chosen = (int) random(0, possibleBlocks.size());
-      blocks.get(i).blockPos = new PVector( possibleBlocks.get(chosen), 0);
+      blocks.get(i).blockPos = new PVector( possibleBlocks.get(chosen), -ystart);
       possibleBlocks.remove(chosen);
     }
   }
