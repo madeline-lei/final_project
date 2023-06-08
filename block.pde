@@ -73,6 +73,7 @@ void scroll() {
     blockPos.y += scrollRate;
   }
 }
+
 boolean isTouching() {
   // WHY IS THERE WIDTH FOR A y-coor COMPARISION AND WHY DOES IT WORK
   int topOfSnake = width / 2 - blockSize / 2 - size / 2;
