@@ -14,19 +14,19 @@ ArrayList<PVector> body = new ArrayList<PVector>();
 ArrayList<Ball> balls = new ArrayList<Ball>();
 ArrayList<Block> blocks = new ArrayList<Block>();
 int numBalls = 3;
-
 Ball ball0 = new Ball();
 Ball ball1 = new Ball();
 Ball ball2 = new Ball();
 
-BlockWall blockWall0 = new BlockWall();
+BlockWall blockWall00 = new BlockWall(0);
 
-Block block0 = new Block(0);
-Block block1 = new Block(0);
-Block block2 = new Block(1);
-Block block3 = new Block(1);
-Block block4 = new Block(2);
-Block block5 = new Block(2);
+
+//Block block0 = new Block(0);
+//Block block1 = new Block(0);
+//Block block2 = new Block(1);
+//Block block3 = new Block(1);
+//Block block4 = new Block(2);
+//Block block5 = new Block(2);
 
 void setup() {
   size(750, 900);
@@ -34,12 +34,14 @@ void setup() {
   colorMode(RGB, 255);
   fill(0);
   
+  LevelOne.startLevelOne();
+  block6.init(3, firstY + 4*125);
+  
   // initialize objects
   for(int i = 0; i < numBalls; i++) {
     balls.add(new Ball());
     balls.get(i).id = i;
   }
-
 }
 
 void draw() {
@@ -55,7 +57,7 @@ void draw() {
     //block2.drawBlock();
     //block3.drawBlock();
     //block4.drawBlock();
-    //block5.drawBlock();
+    block6.drawBlock();
 
   // update snake if frameCount is a multiple of spd which is 20 at the begining
   if(frameCount % spd == 0) {
