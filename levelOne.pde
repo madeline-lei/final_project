@@ -24,6 +24,10 @@ class LevelOne {
     blocks.add(new Block(0, 0, firstY + 16*125));
     blocks.add(new Block(1, 2, firstY + 16*125));
     blocks.add(new Block(0, 5, firstY + 16*125));
+    blocks.add(new Block(2, 0, firstY + 20*125));
+    blocks.add(new Block(1, 3, firstY + 20*125));
+    blocks.add(new Block(2, 4, firstY + 20*125));
+    blocks.add(new Block(0, 2, firstY + 22*125));
   }
   
   void drawLevel() {
