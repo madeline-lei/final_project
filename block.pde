@@ -10,8 +10,6 @@ class Block {
   boolean isEaten = false;
   
   PVector blockPos;
-
-
   
   int type;
   // 0 = easy block (always breakable), 1 = medium block (near the size), 2 = impossible block
@@ -19,8 +17,8 @@ class Block {
   public Block(int Itype, int x, int y) {
     changeMagnitude(Itype);
     blockPos = new PVector(x*125, -y);
-
   }
+  
   public Block(int Itype) {
      changeMagnitude(Itype);
   }
@@ -87,7 +85,6 @@ boolean isOnScreen() {
   return blockPos.y > 0 - size * 3 - 5;
 }
 
-
 boolean leftCollision() {
   int topOfSnake = width / 2 - blockSize / 2 - size / 2;
   if (blockPos.y > topOfSnake + 5 && blockPos.y < topOfSnake + blockSize + size
@@ -98,10 +95,6 @@ boolean leftCollision() {
     return true;
   }
   else return false;
-  
-  //return blockPos.y > topOfSnake + 5 && blockPos.y < topOfSnake + blockSize + size
-  //&& pos.x + size/2 - blockSize/2 < blockPos.x && mouseX + size/2 > blockPos.x - 10
-  //&& !isEaten;
 }
 
 boolean rightCollision() {
@@ -115,10 +108,6 @@ boolean rightCollision() {
     return true;
   }
   else return false;
- 
-  //return blockPos.y > topOfSnake + 5 && blockPos.y < topOfSnake + blockSize + 10
-  //&& pos.x - size/2 + blockSize/2 > blockPos.x + blockSize && mouseX - size/2 < blockPos.x + 10 + blockSize
-  //&& !isEaten;
 }
 
 }
