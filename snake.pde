@@ -115,17 +115,13 @@ void reset() {
 
 
 void homeScreen(){
-  background(#FF83E0);
-  noStroke();
+  background(#FFB9C2);
   textSize(40);
-  fill(#000000);
+  fill(0);
   text("Snake vs Block", width/2 - 120, height/2 - 200);
   textSize(30);
-  fill(#000000);
-  text("Press Key 'g' to start", width/2 - 120, height/2-90);
-  textSize(20);
-  fill(#000000);
-  text("PreCondition: Do not move the mouse off of the game screen", width/2 - 230, height/2 + 40);
+  fill(0);
+  text("press key 'g' to start", width/2 - 120, height/2-90);
 }
 
 void keyPressed(){
