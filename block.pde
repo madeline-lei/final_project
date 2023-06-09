@@ -101,7 +101,7 @@ boolean rightCollision() {
   int topOfSnake = width / 2 - blockSize / 2 - size / 2;
   
   if(blockPos.y > topOfSnake + 5 && blockPos.y < topOfSnake + blockSize + 10
-   && pos.x - size/2 + blockSize/2 > blockPos.x + blockSize && pos.x - size/2 + blockSize/2 < blockPos.x - blockSize
+   && pos.x - size/2 + blockSize/2 > blockPos.x + blockSize && pos.x - size/2 + blockSize/2 < blockPos.x + blockSize + blockSize
    && mouseX - size/2 < blockPos.x + 10 + blockSize
    && !isEaten) {
     pos.x = blockPos.x + blockSize + size/2;
