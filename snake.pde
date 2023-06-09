@@ -9,7 +9,7 @@ int spd = 5; // reverse speed (smaller spd will make the snake move faster)
 int len = 10; // snake body
 
 int accum = 0;
-int scrollRate = 8;
+int scrollRate = 6;
 
 ArrayList<PVector> body = new ArrayList<PVector>();
 
