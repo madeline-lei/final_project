@@ -99,6 +99,7 @@ class LevelOne {
       b.drawBall();
     }
     
+    if(textY < height/2 - 50)
      textY += scrollRate;
      fill(0);
      textSize(50);
