@@ -20,7 +20,7 @@ class BlockWall{
     
     for( int i = 0; i < totalBlocks; i++) {
       int chosen = (int) random(0, possibleBlocks.size());
-      blocks.get(i).blockPos = new PVector( possibleBlocks.get(chosen), -ystart);
+      blocks.get(i).blockPos = new PVector( possibleBlocks.get(chosen), -(125 + ystart*125));
       possibleBlocks.remove(chosen);
     }
   }
