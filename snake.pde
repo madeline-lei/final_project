@@ -45,7 +45,7 @@ void draw() {
     square(-5, -5, 915);
     fill(0);
     textSize(50);
-    text("you died!", width/2 - 98, height/2 - 50);
+    text("You died!", width/2 - 98, height/2 - 50);
     text("final score: " + accum, width/2 - 140, height/2 + 50);
   }
   }

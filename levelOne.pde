@@ -99,10 +99,11 @@ class LevelOne {
       b.drawBall();
     }
     
+    if(textY < height/2 - 50)
      textY += scrollRate;
      fill(0);
-     textSize(30);
-     text( "You Win!", width /2 - 30, textY);
+     textSize(50);
+     text( "You win!", width /2 - 85, textY);
     
     if(!isTouching()) {
       scrollRate = 6;
