@@ -1,8 +1,9 @@
 PVector pos; // snake position (position of the head)
-
+String page = "home";
 boolean leftCollide = false;
 boolean rightCollide = false;
 int size = 40; // snake size
+
 
 int spd = 7; // reverse speed (smaller spd will make the snake move faster)
 int len = 10; // snake body
@@ -19,10 +20,14 @@ void setup() {
   pos = new PVector(width/2, height/2); // Initial snake position
   colorMode(RGB, 255);
   fill(0);
-    
+
 }
 
 void draw() {
+  if (page.equals("home")){
+    homeScreen();
+  }
+  else{
   background(#FFB9C2);
   drawSnake();
   lvl1.drawLevel();
@@ -42,6 +47,7 @@ void draw() {
     textSize(50);
     text("you died!", width/2 - 100, height/2 - 50);
     text("final score: " + accum, width/2 - 140, height/2 + 50);
+  }
   }
 }
 
@@ -105,4 +111,31 @@ void changeLen(int magnitude, int direction) {
 
 void reset() {
   noLoop();
+}
+
+
+void homeScreen(){
+  background(#FF83E0);
+  noStroke();
+  textSize(40);
+  fill(#000000);
+  text("Snake vs Block", width/2 - 120, height/2 - 200);
+  textSize(30);
+  fill(#000000);
+  text("Press Key 'g' to start", width/2 - 120, height/2-90);
+  textSize(20);
+  fill(#000000);
+  text("PreCondition: Do not move the mouse off of the game screen", width/2 - 230, height/2 + 40);
+}
+
+void keyPressed(){
+  if (key == 'h'){
+    page = "home";
+    homeScreen();
+  }
+  
+  if (key == 'g'){
+    page = "game";
+    setup();
+  }
 }
