@@ -4,6 +4,7 @@ class LevelOne {
   ArrayList<BlockWall> blockWalls = new ArrayList<BlockWall>();
   ArrayList<Ball> balls = new ArrayList<Ball>();
   
+  int textY = -35*125;
 
   public LevelOne() {
     balls.add(new Ball(2, -1));
@@ -69,6 +70,8 @@ class LevelOne {
   }
   
   void drawLevel() {
+
+
     if( isTouching()) {
       scrollRate = 0;
     }
@@ -96,9 +99,13 @@ class LevelOne {
       b.drawBall();
     }
     
+     textY += scrollRate;
+     fill(0);
+     textSize(30);
+     text( "You Win!", width /2 - 30, textY);
     
     if(!isTouching()) {
-      scrollRate = 2;
+      scrollRate = 8;
     }
     if(!isLeftCollide()) {
       leftCollide = false;

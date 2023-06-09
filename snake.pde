@@ -5,11 +5,11 @@ boolean rightCollide = false;
 int size = 40; // snake size
 
 
-int spd = 7; // reverse speed (smaller spd will make the snake move faster)
+int spd = 5; // reverse speed (smaller spd will make the snake move faster)
 int len = 10; // snake body
 
 int accum = 0;
-int scrollRate = 2;
+int scrollRate = 8;
 
 ArrayList<PVector> body = new ArrayList<PVector>();
 
