@@ -5,14 +5,15 @@ class LevelOne {
   ArrayList<Ball> balls = new ArrayList<Ball>();
   
 
-  public LevelOne() {
-    balls.add(new Ball(2*125, -1));
-    balls.add(new Ball(4*125, -1));
-    balls.add(new Ball(3*125, -1));
+public LevelOne() {
+    balls.add(new Ball(2, -1));
+    balls.add(new Ball(5, -1));
+    balls.add(new Ball(3, -1));
     
     blockWalls.add(new BlockWall(0));
+    balls.add(new Ball(0, 3));
     blocks.add(new Block(1, 1, 2));
-    balls.add(new Ball(125, 3));
+    balls.add(new Ball(4, 2));
     blocks.add(new Block(2, 4, 3));
     blocks.add(new Block(1, 0, 4));
     blocks.add(new Block(0, 3, 4));
