@@ -1,17 +1,22 @@
 public class Ball {
    private int magnitude = (int) random(1, 5);
-   PVector ballPos = new PVector((int) random(size, 750 - size), 0 + size);
+   PVector ballPos;
    private int txtSize = 15;
    private int ballSize = 20;
    public boolean isEaten = false;
    
    int id;
    
-  public void drawBall() {
-  if (!isEaten) {
+   public Ball( float x, int y){
+     // input x and y value of the desired block position, and this will adjust
+     ballPos = new PVector(x - 60, -(y*125 + 75));
+   }
+   
+   public void drawBall() {
+   if (!isEaten) {
     
     // draw the ball
-    fill(255, 44, 122); //<>// //<>//
+    fill(255, 44, 122);
     circle(ballPos.x, ballPos.y, ballSize);
     fill(#FFFFFF);
     textSize(txtSize); 
@@ -30,6 +35,5 @@ public class Ball {
     }
   }
  }
-
 
 }
