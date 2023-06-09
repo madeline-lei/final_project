@@ -121,7 +121,7 @@ void homeScreen(){
   text("Snake vs Block", width/2 - 120, height/2 - 200);
   textSize(30);
   fill(0);
-  text("press key 'g' to start", width/2 - 120, height/2-90);
+  text("press the space bar to start", width/2 - 120, height/2-90);
 }
 
 void keyPressed(){
@@ -130,7 +130,7 @@ void keyPressed(){
     homeScreen();
   }
   
-  if (key == 'g'){
+  if (key == ' '){
     page = "game";
     setup();
   }
