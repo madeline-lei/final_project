@@ -9,6 +9,7 @@ class LevelOne {
     balls.add(new Ball(2*125, -1));
     balls.add(new Ball(4*125, -1));
     balls.add(new Ball(3*125, -1));
+    
     blockWalls.add(new BlockWall(0));
     blocks.add(new Block(1, 1, 2));
     balls.add(new Ball(125, 3));
