@@ -5,48 +5,57 @@ class LevelOne {
   ArrayList<Ball> balls = new ArrayList<Ball>();
   
 
-public LevelOne() {
+  public LevelOne() {
     balls.add(new Ball(2, -1));
     balls.add(new Ball(5, -1));
     balls.add(new Ball(3, -1));
     
     blockWalls.add(new BlockWall(0));
-    balls.add(new Ball(0, 3));
-    blocks.add(new Block(1, 1, 2));
     balls.add(new Ball(4, 2));
+    blocks.add(new Block(1, 1, 2));
+    balls.add(new Ball(0, 3));
     blocks.add(new Block(2, 4, 3));
     blocks.add(new Block(1, 0, 4));
     blocks.add(new Block(0, 3, 4));
     blocks.add(new Block(2, 2, 4));
+    balls.add(new Ball(3, 5));
     
     blockWalls.add(new BlockWall(6));
+    balls.add(new Ball(2, 8));
     blocks.add(new Block(1, 1, 8));
     blocks.add(new Block(2, 5, 8));
     blocks.add(new Block(0, 2, 9));
+    balls.add(new Ball(0, 9));
     blocks.add(new Block(0, 0, 10));
     blocks.add(new Block(2, 2, 10));
     blocks.add(new Block(1, 4, 10));
+    balls.add(new Ball(4, 11));
     
     blockWalls.add(new BlockWall(12));
     blocks.add(new Block(1, 4, 14));
     blocks.add(new Block(2, 2, 15));
     blocks.add(new Block(2, 3, 15));
+    balls.add(new Ball(1, 15));
     blocks.add(new Block(0, 0, 16));
     blocks.add(new Block(2, 1, 16));
     blocks.add(new Block(1, 5, 16));
+    balls.add(new Ball(5, 17));
     
     blockWalls.add(new BlockWall(18));
     blocks.add(new Block(2, 0, 20));
-    blocks.add(new Block(1, 3, 20));
-    blocks.add(new Block(2, 4, 20));
-    blocks.add(new Block(0, 2, 20));
-    blocks.add(new Block(0, 4, 20));
+    blocks.add(new Block(2, 2, 20));
+    balls.add(new Ball(2, 21));
+    blocks.add(new Block(1, 3, 21));
+    blocks.add(new Block(0, 4, 21));
+    balls.add(new Ball(5, 21));
     
     blockWalls.add(new BlockWall(23));
-    blocks.add(new Block(1, 4, 25));
-    blocks.add(new Block(2, 2, 25));
+    blocks.add(new Block(1, 2, 25));
+    balls.add(new Ball(3, 25));
+    blocks.add(new Block(2, 4, 25));
     blocks.add(new Block(2, 3, 26));
     blocks.add(new Block(0, 0, 27));
+    balls.add(new Ball(0, 28));
     blocks.add(new Block(2, 4, 28));
     blocks.add(new Block(2, 1, 28));
     blocks.add(new Block(1, 5, 28));
@@ -54,6 +63,7 @@ public LevelOne() {
     blocks.add(new Block(0, 2, 30));
     blocks.add(new Block(2, 3, 30));
     blocks.add(new Block(1, 4, 30));
+    balls.add(new Ball(4, 31));
     
     blockWalls.add(new BlockWall(32));
   }
