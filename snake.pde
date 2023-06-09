@@ -12,12 +12,6 @@ int scrollRate = 2;
 
 ArrayList<PVector> body = new ArrayList<PVector>();
 
-ArrayList<Ball> balls = new ArrayList<Ball>();
-int numBalls = 3;
-Ball ball0 = new Ball();
-Ball ball1 = new Ball();
-Ball ball2 = new Ball();
-
 LevelOne lvl1 = new LevelOne();
 
 void setup() {
@@ -26,17 +20,11 @@ void setup() {
   colorMode(RGB, 255);
   fill(0);
     
-  // initialize objects
-  for(int i = 0; i < numBalls; i++) {
-    balls.add(new Ball());
-    balls.get(i).id = i;
-  }
 }
 
 void draw() {
   background(#FFB9C2);
   drawSnake();
-  createFood();
   lvl1.drawLevel();
 
   // update snake if frameCount is a multiple of spd which is 20 at the begining
@@ -52,7 +40,7 @@ void draw() {
     square(-5, -5, 915);
     fill(0);
     textSize(50);
-    text("You Died!", width/2 - 100, height/2 - 50);
+    text("you died!", width/2 - 100, height/2 - 50);
     text("final score: " + accum, width/2 - 140, height/2 + 50);
   }
 }
@@ -117,9 +105,4 @@ void changeLen(int magnitude, int direction) {
 
 void reset() {
   noLoop();
-}
-void createFood() {
-  for( int i = 0; i < balls.size(); i++) {
-    balls.get(i).drawBall();
-  }
 }
