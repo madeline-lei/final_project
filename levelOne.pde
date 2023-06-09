@@ -102,7 +102,7 @@ class LevelOne {
      textY += scrollRate;
      fill(0);
      textSize(50);
-     text( "You Win!", width /2 - 85, textY);
+     text( "You win!", width /2 - 85, textY);
     
     if(!isTouching()) {
       scrollRate = 6;
