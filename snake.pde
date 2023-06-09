@@ -85,7 +85,6 @@ void updateSnake() {
   if(body.size() > len) {
       body.remove(body.size()-1);
   }
-  println(leftCollide);
   // change the position of the head
     pos = new PVector(pos.x, pos.y + size);
 }
