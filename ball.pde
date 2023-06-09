@@ -18,11 +18,6 @@ public class Ball {
     text(magnitude, ballPos.x - txtSize / 4, ballPos.y + txtSize / 3);
     ballPos.y += scrollRate;
     
-    // i have no idea what this is
-    //if(ballPos.y == width / 2 - ballSize / 2 - size / 2
-    //&& mouseX > ballPos.x && mouseX < ballPos.x + ballSize) {
-    //}
-    
     // check if the head is on the ball
     if( ballPos.x > mouseX - size && ballPos.x < mouseX + size 
     && ballPos.y > height / 2 - size && ballPos.y < height / 2 ) {
