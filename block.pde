@@ -76,7 +76,7 @@ boolean isTouching() {
   // WHY IS THERE WIDTH FOR A y-coor COMPARISION AND WHY DOES IT WORK
   int topOfSnake = width / 2 - blockSize / 2 - size / 2;
   return ( blockPos.y > topOfSnake && blockPos.y < topOfSnake + 10) 
-  && mouseX > blockPos.x && mouseX < blockPos.x + blockSize
+  && pos.x > blockPos.x && pos.x < blockPos.x + blockSize
   && !isEaten;
 }
 

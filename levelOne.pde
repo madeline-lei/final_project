@@ -105,7 +105,7 @@ class LevelOne {
      text( "You Win!", width /2 - 30, textY);
     
     if(!isTouching()) {
-      scrollRate = 8;
+      scrollRate = 6;
     }
     if(!isLeftCollide()) {
       leftCollide = false;
