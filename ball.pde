@@ -1,4 +1,4 @@
-public class Ball {
+public class Ball { //<>//
    private int magnitude = (int) random(1, 5);
    PVector ballPos;
    private int txtSize = 15;
@@ -9,7 +9,7 @@ public class Ball {
    
    public Ball( float x, int y){
      // input x and y value of the desired block position, and this will adjust
-     ballPos = new PVector(x*125 - 60, -(y*125 + 75));
+     ballPos = new PVector(x*125 + 65, -(y*125 + 75));
    }
    
    public void drawBall() {
