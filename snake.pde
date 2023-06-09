@@ -1,9 +1,5 @@
 PVector pos; // snake position (position of the head)
 
-//float sTop;
-//float sBottom;
-//float sLeft;
-//float sRight;
 boolean leftCollide = false;
 boolean rightCollide = false;
 int size = 40; // snake size
@@ -29,11 +25,6 @@ void setup() {
   pos = new PVector(width/2, height/2); // Initial snake position
   colorMode(RGB, 255);
   fill(0);
-  
-  //sTop = pos.y - size;
-  //sBottom = pos.y + size;
-  //sLeft = pos.x - size;
-  //sRight = pos.x + size;
     
   // initialize objects
   for(int i = 0; i < numBalls; i++) {
@@ -90,9 +81,6 @@ void updateSnake() {
   // continuously add the new head to the body
   body.add(body.size(), pos);
 
-  
-
-
   // remove the excess (old) positions of the body
   if(body.size() > len) {
       body.remove(body.size()-1);
@@ -100,8 +88,6 @@ void updateSnake() {
   println(leftCollide);
   // change the position of the head
     pos = new PVector(pos.x, pos.y + size);
-  
-  
 }
 
 void mouseMoved() {
