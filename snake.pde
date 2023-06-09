@@ -7,9 +7,9 @@ int size = 40; // snake size
 
 int spd = 5; // reverse speed (smaller spd will make the snake move faster)
 int len = 10; // snake body
-
+int setScroll = 6;
 int accum = 0;
-int scrollRate = 6;
+int scrollRate = setScroll;
 
 ArrayList<PVector> body = new ArrayList<PVector>();
 
@@ -134,4 +134,12 @@ void keyPressed(){
     page = "game";
     setup();
   }
+  
+  //if(key == 1) {
+  //  setScroll = 2;
+  //}
+  
+  //if(key == 2) {
+  //  setScroll = 10;
+  //}
 }
