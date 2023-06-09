@@ -45,7 +45,7 @@ void draw() {
     square(-5, -5, 915);
     fill(0);
     textSize(50);
-    text("you died!", width/2 - 100, height/2 - 50);
+    text("you died!", width/2 - 98, height/2 - 50);
     text("final score: " + accum, width/2 - 140, height/2 + 50);
   }
   }
@@ -116,12 +116,12 @@ void reset() {
 
 void homeScreen(){
   background(#FFB9C2);
-  textSize(40);
+  textSize(50);
   fill(0);
-  text("Snake vs Block", width/2 - 120, height/2 - 200);
+  text("Snake vs Block", width/2 - 148, height/2 - 50);
   textSize(20);
   fill(0);
-  text("press the space bar to start", width/2 - 105, height/2-90);
+  text("press the space bar to start", width/2 - 105, height/2 + 50);
 }
 
 void keyPressed(){
