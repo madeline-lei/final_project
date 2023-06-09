@@ -10,13 +10,13 @@ class Block {
   boolean isEaten = false;
   
   PVector blockPos;
-  
+
   int type;
   // 0 = easy block (always breakable), 1 = medium block (near the size), 2 = impossible block
   
   public Block(int Itype, int x, int y) {
     changeMagnitude(Itype);
-    blockPos = new PVector(x*125, -y);
+    blockPos = new PVector(x*125, -(125 + y*125));
   }
   
   public Block(int Itype) {
@@ -84,6 +84,7 @@ boolean isTouching() {
 boolean isOnScreen() {
   return blockPos.y > 0 - size * 3 - 5;
 }
+
 
 boolean leftCollision() {
   int topOfSnake = width / 2 - blockSize / 2 - size / 2;
