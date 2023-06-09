@@ -1,4 +1,4 @@
- class BlockWall{
+class BlockWall{
   ArrayList<Integer> possibleBlocks = new ArrayList<Integer>();
   int totalBlocks = 6;
   
